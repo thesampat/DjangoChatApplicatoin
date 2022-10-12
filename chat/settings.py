@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('S_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysuchat.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['chey8.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -111,7 +111,7 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
-CSRF_TRUSTED_ORIGINS = ['https://mysuchat.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://chey8.herokuapp.com']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -154,7 +154,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 #STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'staticfiles'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

@@ -1,5 +1,5 @@
 var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-var ws = new WebSocket('wss://mysuchat.herokuapp.com/chat/')
+var ws = new WebSocket('wss://chey8.herokuapp.com/chat/')
 var user_status = 'offline'
 var messagebadge = 1
 listbuttons = document.getElementsByClassName('listbuttons')

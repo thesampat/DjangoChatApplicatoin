@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<body>
+  {% load static %}
+    <div class="container w-25 border border-dark rounded round p-3 mt-5">
+        <h2 class='text-center mb-3'>ChatApp</h2>
+    <form action='home' method='GET'>
+        <!-- Email input -->
+        <div class="form-outline mb-4 text-center">
+          <input  id="form2Example1" class="form-control" name='username' placeholder='Enter Username' />
+          <button type="submit" class="btn-lg btn-primary btn-block mb-2 mt-2">Sign in</button>
+        </div>
+        <!-- Submit button -->
+      </form>
+    </div> 
+</body>
+{% endblock %}

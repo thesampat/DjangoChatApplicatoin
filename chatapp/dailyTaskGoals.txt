@@ -1,0 +1,19 @@
+Todays Goal;
+
+1. Two way communication with front-end support - Done
+2. need to fix rececig message from client _ Done
+3. store the messages and add them to seperate user by filting - 3 October - Done
+4. offline pending messages handling = 4 October - Done
+need to fix to_user, from_user receipt - Done
+message timestamp - done
+5. status online offline, lastseen - 4 October
+7. Group messages
+
+
+8. fix last seen while on message though server
+9. 
+
+
+
+
+

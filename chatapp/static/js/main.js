@@ -20,6 +20,7 @@ target_user = event
 chatScreen.innerHTML  = ''
 chatWindow.style.visibility = 'visible'
 isgroup = 0;
+statusDisplay.innerHTML = ''
 
 if (requestUser != target_user){
 let badge = document.querySelector(`#badge_${target_user}`)

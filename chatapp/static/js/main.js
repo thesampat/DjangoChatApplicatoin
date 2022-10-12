@@ -46,7 +46,7 @@ if (isgroup == 1){
     typechat = 'group'
 }
 
-axios.get(`http://${window.location.host}/status/${target_user}/`).then(
+axios.get(`https://${window.location.host}/status/${target_user}/`).then(
     function(res){
         
     if(isgroup == 1){
@@ -63,7 +63,7 @@ axios.get(`http://${window.location.host}/status/${target_user}/`).then(
 }
 )
 
-axios.get(`http://${window.location.host}/chats/${requestUser}/${target_user}/${typechat}/`)
+axios.get(`https://${window.location.host}/chats/${requestUser}/${target_user}/${typechat}/`)
 .then(function(res){
 let json_data = JSON.parse(res['data'])
 console.log(json_data)

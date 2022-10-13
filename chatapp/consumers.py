@@ -53,8 +53,9 @@ class ChatTo(WebsocketConsumer):
 
     def disconnect(self, close_code):
         
+        print(type(self.scope['user']), 'test500')
         
-        user_ob = redisUser.objects.filter(user=self.scope['user'])
+        user_ob = redisUser.objects.filter(user=str(self.scope['user']))
         user_ob.update(active_status=timezone.datetime.now())
 
 

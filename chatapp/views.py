@@ -1,6 +1,7 @@
 import email
 from genericpath import exists
 import json
+from os import PRIO_USER
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -22,12 +23,17 @@ def home(request):
     username = request.GET['username']
     existing_user = User.objects.filter(username=username)
 
+    print(username, 'test-----username')
+
+
     if len(existing_user) == 0:
         User.objects.create_user(username=username, email='noeamil@gmail.com', password='password').save()
     
     IsValidUser = authenticate(username=username, password='password')
+    print(IsValidUser, 'i am verification')
     
     if IsValidUser is not None:
+        print(IsValidUser, 'is valid or not')
         login(request, IsValidUser)
 
     ChatListUsers = list(User.objects.all().exclude(username=username).exclude(username='sam').exclude(username__contains='group').values('username'))

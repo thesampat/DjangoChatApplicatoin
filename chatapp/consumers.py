@@ -173,6 +173,9 @@ class ChatTo(WebsocketConsumer):
 def save_channel(self):
     channelName = self.channel_name
     request_user = self.scope['user']
+
+    print(request_user)
+    print(self.scope)
     
     existing_user = redisUser.objects.filter(user=request_user)
 

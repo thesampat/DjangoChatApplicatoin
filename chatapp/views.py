@@ -23,14 +23,10 @@ def home(request):
     username = request.GET['username']
     existing_user = User.objects.filter(username=username)
 
-    print(username, 'test-----username')
-
-
     if len(existing_user) == 0:
         User.objects.create_user(username=username, email='noeamil@gmail.com', password='password').save()
     
     IsValidUser = authenticate(username=username, password='password')
-    print(IsValidUser, 'i am verification')
     
     if IsValidUser is not None:
         print(IsValidUser, 'is valid or not')

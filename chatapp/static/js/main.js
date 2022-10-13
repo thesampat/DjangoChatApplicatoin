@@ -69,7 +69,7 @@ axios.get(`${window.location.protocol}/status/${target_user}/`).then(
 axios.get(`${window.location.protocol}/chats/${requestUser}/${target_user}/${typechat}/`)
 .then(function(res){
 let json_data = JSON.parse(res['data'])
-console.log(json_data)
+
 let fpr;
 let spr;
 

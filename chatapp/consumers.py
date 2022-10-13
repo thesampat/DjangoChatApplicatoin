@@ -20,10 +20,6 @@ class ChatTo(WebsocketConsumer):
         self.notify_group = 'user_notification'
         self.self_room = 'room_'+ str(self.scope['user'])
 
-        
-
-        print(self.scope)
-
         async_to_sync(self.channel_layer.group_add)(
             self.notify_group,
             self.channel_name

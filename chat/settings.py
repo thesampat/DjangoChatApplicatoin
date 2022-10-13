@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get('S_KEY')
-SECRET_KEY = 'django-insecure-8f$*t_cl=zli*-r)@a8k5&m%28mt=^8fhipb&@xo5hwn#&35zq'
+SECRET_KEY = 'generate new secret key'
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chat.settings.local")
 
 

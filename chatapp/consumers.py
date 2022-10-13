@@ -14,10 +14,16 @@ import humanize
 
 class ChatTo(WebsocketConsumer):
     def connect(self):
+        print(self.scope)
+        username = self.scope["url_route"]["kwargs"]["username"]
+
         save_channel(self)
         self.notify_group = 'user_notification'
         self.self_room = 'room_'+ str(self.scope['user'])
 
+        
+
+        print(self.scope)
 
         async_to_sync(self.channel_layer.group_add)(
             self.notify_group,
@@ -173,7 +179,7 @@ class ChatTo(WebsocketConsumer):
 def save_channel(self):
     channelName = self.channel_name
     request_user = self.scope['user']
-    
+
     existing_user = redisUser.objects.filter(user=request_user)
 
     if len(existing_user) == 0:
@@ -183,7 +189,6 @@ def save_channel(self):
 
 
 
-#test pull requet
 
 
 

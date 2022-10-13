@@ -53,13 +53,13 @@ class ChatTo(WebsocketConsumer):
 
     def disconnect(self, close_code):
         
-        print(type(self.scope['user']), 'test500')
+        username = self.scope["url_route"]["kwargs"]["username"]
         
-        user_ob = redisUser.objects.filter(user=str(self.scope['user']))
+        user_ob = redisUser.objects.filter(user=username)
         user_ob.update(active_status=timezone.datetime.now())
 
 
-        last_online = redisUser.objects.filter(user=self.scope['user']).values('active_status').get()['active_status']
+        last_online = redisUser.objects.filter(user=username).values('active_status').get()['active_status']
         user_status = humanize.naturaltime(timezone.datetime.now(timezone.utc) - last_online)
 
         async_to_sync(self.channel_layer.group_send)(

@@ -14,10 +14,9 @@ import humanize
 
 class ChatTo(WebsocketConsumer):
     def connect(self):
-        print(self.scope)
         username = self.scope["url_route"]["kwargs"]["username"]
 
-        save_channel(self)
+        save_channel(self, username)
         self.notify_group = 'user_notification'
         self.self_room = 'room_'+ str(self.scope['user'])
 
@@ -176,14 +175,13 @@ class ChatTo(WebsocketConsumer):
         self.send(text_data=json.dumps(message))
 
 
-def save_channel(self):
+def save_channel(self, username):
     channelName = self.channel_name
-    request_user = self.scope['user']
 
-    existing_user = redisUser.objects.filter(user=request_user)
+    existing_user = redisUser.objects.filter(user=username)
 
     if len(existing_user) == 0:
-        redisUser.objects.create(user=str(request_user), channel_name=channelName).save()
+        redisUser.objects.create(user=username, channel_name=channelName).save()
     else:
         existing_user.update(channel_name=channelName)
 

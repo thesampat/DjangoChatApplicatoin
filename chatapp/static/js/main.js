@@ -12,7 +12,7 @@ let statusDisplay = document.getElementById('statusOnline')
 let isgroup = 0
 let group = 'None'
 
-var ws = new WebSocket(`wss://chey8.herokuapp.com/chat/${requestUser}/`)
+var ws = new WebSocket(`${ws_scheme}://chey8.herokuapp.com/chat/${requestUser}/`)
 
 
 
@@ -49,7 +49,7 @@ if (isgroup == 1){
     typechat = 'group'
 }
 
-axios.get(`https://${window.location.host}/status/${target_user}/`).then(
+axios.get(`${window.location.protocol}/status/${target_user}/`).then(
     function(res){
         
     if(isgroup == 1){
@@ -66,7 +66,7 @@ axios.get(`https://${window.location.host}/status/${target_user}/`).then(
 }
 )
 
-axios.get(`https://${window.location.host}/chats/${requestUser}/${target_user}/${typechat}/`)
+axios.get(`${window.location.protocol}/chats/${requestUser}/${target_user}/${typechat}/`)
 .then(function(res){
 let json_data = JSON.parse(res['data'])
 console.log(json_data)

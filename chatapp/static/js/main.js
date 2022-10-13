@@ -1,5 +1,4 @@
 var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-var ws = new WebSocket('wss://chey8.herokuapp.com/chat/{{request.user}}/')
 var user_status = 'offline'
 var messagebadge = 1
 listbuttons = document.getElementsByClassName('listbuttons')
@@ -12,6 +11,9 @@ let chatWindow = document.querySelector('#chatWindow')
 let statusDisplay = document.getElementById('statusOnline')
 let isgroup = 0
 let group = 'None'
+
+var ws = new WebSocket(`wss://chey8.herokuapp.com/chat/${requestUser}/`)
+
 
 
 function select(event){

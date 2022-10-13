@@ -180,8 +180,8 @@ def save_channel(self):
     existing_user = redisUser.objects.filter(user=request_user)
 
     if len(existing_user) == 0:
-        print(request_user, type(request_user))
-        redisUser.objects.create(user=request_user, channel_name=channelName).save()
+        print(request_user, str(request_user))
+        redisUser.objects.create(user=str(request_user), channel_name=channelName).save()
     else:
         existing_user.update(channel_name=channelName)
 
